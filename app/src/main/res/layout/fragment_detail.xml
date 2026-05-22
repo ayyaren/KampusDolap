@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,7 +13,7 @@
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
-            android:layout_height="280dp"/>
+            android:layout_height="250dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,9 +23,9 @@
 
             <TextView
                 android:id="@+id/tvTitle"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 android:textColor="#212121"/>
 
@@ -34,10 +33,10 @@
                 android:id="@+id/tvPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="22sp"
+                android:textSize="20sp"
                 android:textColor="#1B5E20"
                 android:textStyle="bold"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginTop="4dp"/>
 
             <TextView
                 android:id="@+id/tvCategory"
@@ -52,24 +51,31 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
-                android:textColor="#424242"
-                android:layout_marginTop="4dp"/>
+                android:textColor="#757575"
+                android:layout_marginTop="2dp"/>
 
             <TextView
                 android:id="@+id/tvSellerCity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
-                android:textColor="#424242"
-                android:layout_marginTop="4dp"/>
+                android:textColor="#757575"
+                android:layout_marginTop="2dp"/>
 
             <TextView
                 android:id="@+id/tvDescription"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
-                android:textColor="#616161"
+                android:textColor="#424242"
                 android:layout_marginTop="8dp"/>
+
+            <fragment
+                android:id="@+id/mapFragment"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="16dp"/>
 
             <Button
                 android:id="@+id/btnAddToCart"
@@ -77,9 +83,7 @@
                 android:layout_height="wrap_content"
                 android:text="Sepete Ekle"
                 android:backgroundTint="#1B5E20"
-                android:textColor="#FFFFFF"
-                android:layout_marginTop="16dp"
-                android:padding="16dp"/>
+                android:layout_marginTop="16dp"/>
 
             <Button
                 android:id="@+id/btnBuy"
@@ -87,19 +91,15 @@
                 android:layout_height="wrap_content"
                 android:text="Satın Al"
                 android:backgroundTint="#2E7D32"
-                android:textColor="#FFFFFF"
-                android:layout_marginTop="8dp"
-                android:padding="16dp"/>
+                android:layout_marginTop="8dp"/>
 
             <Button
                 android:id="@+id/btnFavorite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Favorilere Ekle"
-                android:backgroundTint="#FFFFFF"
-                android:textColor="#1B5E20"
-                android:layout_marginTop="8dp"
-                android:padding="16dp"/>
+                android:backgroundTint="#757575"
+                android:layout_marginTop="8dp"/>
 
         </LinearLayout>
     </LinearLayout>
