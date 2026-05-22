@@ -42,8 +42,18 @@
         android:label="Favoriler" />
 
     <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.kampusdolap.app.ui.cart.CartFragment"
+        android:label="Sepet" />
+
+    <fragment
         android:id="@+id/profileFragment"
         android:name="com.kampusdolap.app.ui.profile.ProfileFragment"
         android:label="Profil" />
+
+    <fragment
+        android:id="@+id/addProductFragment"
+        android:name="com.kampusdolap.app.ui.AddProductFragment"
+        android:label="Ürün Ekle" />
 
 </navigation>
