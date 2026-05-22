@@ -1,10 +1,10 @@
 plugins {
     alias(libs.plugins.android.application)
+    id("org.jetbrains.kotlin.android") version "2.0.21"
     id("com.google.gms.google-services")
-    id("kotlin-parcelize")
-
+    id("org.jetbrains.kotlin.plugin.parcelize") version "2.0.21"
+    id("com.google.devtools.ksp") version "2.0.21-1.0.25"
 }
-
 android {
     namespace = "com.kampusdolap.app"
     compileSdk = 36
@@ -37,6 +37,9 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = "11"
     }
 }
 
