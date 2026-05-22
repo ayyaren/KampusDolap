@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.kampusdolap.app.ui.splash.SplashFragment"
-        android:label="Splash" >
+        android:label="Splash">
         <action
             android:id="@+id/action_splashFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -16,7 +16,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.kampusdolap.app.ui.login.LoginFragment"
-        android:label="Giriş Yap" >
+        android:label="Giriş Yap">
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -25,7 +25,11 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.kampusdolap.app.ui.home.HomeFragment"
-        android:label="Ana Sayfa" />
+        android:label="Ana Sayfa">
+        <action
+            android:id="@+id/action_homeFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/detailFragment"
