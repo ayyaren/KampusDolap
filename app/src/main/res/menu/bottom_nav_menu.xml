@@ -12,6 +12,11 @@
         android:title="Favoriler"/>
 
     <item
+        android:id="@+id/addProductFragment"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="Ekle"/>
+
+    <item
         android:id="@+id/cartFragment"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="Sepet"/>
