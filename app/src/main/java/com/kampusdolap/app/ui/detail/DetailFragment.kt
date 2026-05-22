@@ -6,8 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.navArgs
-import coil.load
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
+import com.kampusdolap.app.R
 import com.kampusdolap.app.data.AppDatabase
 import com.kampusdolap.app.databinding.FragmentDetailBinding
 import com.kampusdolap.app.model.CartItem
@@ -17,10 +22,12 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class DetailFragment : Fragment() {
+class DetailFragment : Fragment(), OnMapReadyCallback {
 
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
+    private var googleMap: GoogleMap? = null
+    private var sellerCity: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,9 +41,18 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val product = arguments?.getSerializable("product") as? Product
+        val product = if (android.os.Build.VERSION.SDK_INT >= 33) {
+            arguments?.getParcelable("product", Product::class.java)
+        } else {
+            @Suppress("DEPRECATION")
+            arguments?.getParcelable("product")
+        }
+        val mapFragment = childFragmentManager
+            .findFragmentById(R.id.mapFragment) as SupportMapFragment
+        mapFragment.getMapAsync(this)
 
         product?.let {
+            sellerCity = it.sellerCity ?: ""
             binding.tvTitle.text = it.title
             binding.tvPrice.text = "₺${it.price}"
             binding.tvCategory.text = "Kategori: ${it.category}"
@@ -72,9 +88,34 @@ class DetailFragment : Fragment() {
                 Toast.makeText(requireContext(), "Favorilere eklendi!", Toast.LENGTH_SHORT).show()
             }
 
-            binding.btnBuy.setOnClickListener { _ ->
-                Toast.makeText(requireContext(), "Siparişiniz alındı! 🎉", Toast.LENGTH_LONG).show()
+            binding.btnBuy.setOnClickListener {
+                Toast.makeText(requireContext(), "Satın alma işlemi başlatıldı!", Toast.LENGTH_SHORT).show()
             }
+        }
+    }
+
+    override fun onMapReady(map: GoogleMap) {
+        googleMap = map
+        val cityCoordinates = getCityCoordinates(sellerCity)
+        cityCoordinates?.let {
+            googleMap?.addMarker(MarkerOptions().position(it).title(sellerCity))
+            googleMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(it, 10f))
+        }
+    }
+
+    private fun getCityCoordinates(city: String): LatLng? {
+        return when (city.lowercase()) {
+            "istanbul" -> LatLng(41.0082, 28.9784)
+            "ankara" -> LatLng(39.9334, 32.8597)
+            "izmir" -> LatLng(38.4192, 27.1287)
+            "bursa" -> LatLng(40.1885, 29.0610)
+            "antalya" -> LatLng(36.8969, 30.7133)
+            "adana" -> LatLng(37.0000, 35.3213)
+            "konya" -> LatLng(37.8746, 32.4932)
+            "gaziantep" -> LatLng(37.0662, 37.3833)
+            "trabzon" -> LatLng(41.0015, 39.7178)
+            "kayseri" -> LatLng(38.7312, 35.4787)
+            else -> LatLng(39.9334, 32.8597)
         }
     }
 

@@ -23,7 +23,7 @@
         </activity>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDm37WOdhTbTHuxAlhqxflUmCd1gj8u3d8"/>
+            android:value="AIzaSyBf8beH3d3kNQiisr2NcM3d_CuVc_UbZ3c"/>
     </application>
 
 </manifest>

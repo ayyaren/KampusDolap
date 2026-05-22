@@ -5,23 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="280dp"/>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp">
-
             <TextView
                 android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
@@ -29,7 +25,6 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="#212121"/>
-
             <TextView
                 android:id="@+id/tvPrice"
                 android:layout_width="wrap_content"
@@ -38,7 +33,6 @@
                 android:textColor="#1B5E20"
                 android:textStyle="bold"
                 android:layout_marginTop="8dp"/>
-
             <TextView
                 android:id="@+id/tvCategory"
                 android:layout_width="wrap_content"
@@ -46,7 +40,6 @@
                 android:textSize="14sp"
                 android:textColor="#757575"
                 android:layout_marginTop="4dp"/>
-
             <TextView
                 android:id="@+id/tvSize"
                 android:layout_width="wrap_content"
@@ -54,7 +47,6 @@
                 android:textSize="14sp"
                 android:textColor="#424242"
                 android:layout_marginTop="4dp"/>
-
             <TextView
                 android:id="@+id/tvSellerCity"
                 android:layout_width="wrap_content"
@@ -62,7 +54,6 @@
                 android:textSize="14sp"
                 android:textColor="#424242"
                 android:layout_marginTop="4dp"/>
-
             <TextView
                 android:id="@+id/tvDescription"
                 android:layout_width="match_parent"
@@ -70,7 +61,12 @@
                 android:textSize="14sp"
                 android:textColor="#616161"
                 android:layout_marginTop="8dp"/>
-
+            <fragment
+                android:id="@+id/mapFragment"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="16dp"/>
             <Button
                 android:id="@+id/btnAddToCart"
                 android:layout_width="match_parent"
@@ -80,7 +76,6 @@
                 android:textColor="#FFFFFF"
                 android:layout_marginTop="16dp"
                 android:padding="16dp"/>
-
             <Button
                 android:id="@+id/btnBuy"
                 android:layout_width="match_parent"
@@ -90,7 +85,6 @@
                 android:textColor="#FFFFFF"
                 android:layout_marginTop="8dp"
                 android:padding="16dp"/>
-
             <Button
                 android:id="@+id/btnFavorite"
                 android:layout_width="match_parent"
@@ -100,7 +94,6 @@
                 android:textColor="#1B5E20"
                 android:layout_marginTop="8dp"
                 android:padding="16dp"/>
-
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
