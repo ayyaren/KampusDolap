@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.kampusdolap.app.ui.splash.SplashFragment"
+        android:label="Splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.kampusdolap.app.ui.login.LoginFragment"
+        android:label="Giriş Yap" >
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.kampusdolap.app.ui.home.HomeFragment"
+        android:label="Ana Sayfa" />
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.kampusdolap.app.ui.detail.DetailFragment"
+        android:label="Ürün Detay" />
+
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.kampusdolap.app.ui.favorites.FavoritesFragment"
+        android:label="Favoriler" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.kampusdolap.app.ui.profile.ProfileFragment"
+        android:label="Profil" />
+
+</navigation>
