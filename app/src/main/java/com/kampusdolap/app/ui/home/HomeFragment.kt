@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -32,7 +33,8 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         adapter = ProductAdapter(emptyList()) { product ->
-            // Ürüne tıklanınca detay ekranına git
+            val bundle = bundleOf("product" to product)
+            findNavController().navigate(R.id.action_homeFragment_to_detailFragment, bundle)
         }
 
         binding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)

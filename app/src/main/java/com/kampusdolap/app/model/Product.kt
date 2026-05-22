@@ -1,5 +1,7 @@
 package com.kampusdolap.app.model
 
+import java.io.Serializable
+
 data class Product(
     val id: String = "",
     val title: String = "",
@@ -10,4 +12,4 @@ data class Product(
     val sellerCity: String = "",
     val sellerId: String = "",
     val description: String = ""
-)
+) : Serializable
