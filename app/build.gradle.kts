@@ -75,5 +75,6 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:32.7.4"))
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.google.firebase:firebase-auth-ktx")
+    implementation("com.google.android.gms:play-services-maps:19.0.0")
     annotationProcessor("androidx.room:room-compiler:2.6.1")
 }
