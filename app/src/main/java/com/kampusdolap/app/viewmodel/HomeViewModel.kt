@@ -14,22 +14,19 @@ class HomeViewModel : ViewModel() {
     val products = MutableLiveData<List<Product>>()
 
     fun loadProducts() {
-        // Firebase'den kullanıcı ilanlarını çek
         repository.getProducts { firebaseProducts ->
-
-            // Retrofit ile DummyJSON'dan çek
             viewModelScope.launch {
                 try {
                     val apiProducts = RetrofitClient.api.getProducts().products.map {
                         Product(
-                            id = it.id,
+                            id = it.id.toString(),
                             title = it.title,
                             price = it.price,
                             imageUrl = it.imageUrl,
-                            category = it.category
+                            category = it.category,
+                            description = it.description
                         )
                     }
-                    // İkisini birleştir
                     products.postValue(apiProducts + firebaseProducts)
                 } catch (e: Exception) {
                     products.postValue(firebaseProducts)
