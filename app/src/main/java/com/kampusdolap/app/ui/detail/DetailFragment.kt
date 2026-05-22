@@ -1,5 +1,5 @@
 package com.kampusdolap.app.ui.detail
-
+import com.kampusdolap.app.data.NotificationHelper
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -89,7 +89,8 @@ class DetailFragment : Fragment(), OnMapReadyCallback {
             }
 
             binding.btnBuy.setOnClickListener {
-                Toast.makeText(requireContext(), "Satın alma işlemi başlatıldı!", Toast.LENGTH_SHORT).show()
+                NotificationHelper.sendOrderNotification(requireContext(), product.title)
+                Toast.makeText(requireContext(), "Siparişiniz alındı!", Toast.LENGTH_SHORT).show()
             }
         }
     }
