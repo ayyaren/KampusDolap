@@ -1,76 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="24dp"
-    android:gravity="center_vertical"
-    android:background="#FFFFFF">
+    android:background="@color/background">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="KampüsDolap"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:textColor="#1B5E20"
-        android:layout_marginBottom="8dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hoş geldin!"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:textColor="#212121"
-        android:layout_marginBottom="4dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Üniversite dolabına giriş yap."
-        android:textSize="14sp"
-        android:textColor="#757575"
-        android:layout_marginBottom="32dp"/>
-
-    <EditText
-        android:id="@+id/etEmail"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="E-posta"
-        android:inputType="textEmailAddress"
-        android:padding="16dp"
-        android:background="@drawable/bg_edittext"
-        android:layout_marginBottom="16dp"/>
+        android:orientation="vertical"
+        android:padding="24dp">
 
-    <EditText
-        android:id="@+id/etPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Şifre"
-        android:inputType="textPassword"
-        android:padding="16dp"
-        android:background="@drawable/bg_edittext"
-        android:layout_marginBottom="24dp"/>
+        <!-- Logo ve Başlık -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="16dp">
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Giriş Yap"
-        android:backgroundTint="#1B5E20"
-        android:textColor="#FFFFFF"
-        android:padding="16dp"
-        android:layout_marginBottom="12dp"/>
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_shopping_bag"
+                app:tint="@color/primary"
+                xmlns:app="http://schemas.android.com/apk/res-auto"/>
 
-    <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Kayıt Ol"
-        android:backgroundTint="#FFFFFF"
-        android:textColor="#1B5E20"
-        android:padding="16dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="KampüsDolap"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/foreground"
+                android:layout_marginStart="8dp"/>
 
-</LinearLayout>
+        </LinearLayout>
+
+        <!-- Hoş geldin -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hoş geldin!"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/foreground"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Üniversite dolabına giriş yap."
+            android:textSize="14sp"
+            android:textColor="@color/muted_foreground"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Tab seçici -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/muted"
+            android:padding="4dp"
+            android:layout_marginBottom="20dp">
+
+            <Button
+                android:id="@+id/btnTabLogin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Giriş Yap"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/foreground"
+                android:textSize="14sp"
+                android:elevation="2dp"/>
+
+            <Button
+                android:id="@+id/btnTabRegister"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Kayıt Ol"
+                android:backgroundTint="@color/muted"
+                android:textColor="@color/muted_foreground"
+                android:textSize="14sp"
+                android:elevation="0dp"/>
+
+        </LinearLayout>
+
+        <!-- E-posta -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="E-POSTA"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:textColor="@color/foreground"
+            android:letterSpacing="0.08"
+            android:layout_marginBottom="6dp"/>
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="buse@odtu.edu.tr"
+            android:inputType="textEmailAddress"
+            android:padding="16dp"
+            android:background="@drawable/bg_edittext"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Şifre -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="6dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="ŞİFRE"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="@color/foreground"
+                android:letterSpacing="0.08"/>
+
+            <TextView
+                android:id="@+id/tvForgotPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Şifremi unuttum"
+                android:textSize="12sp"
+                android:textColor="@color/primary"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="••••••••"
+            android:inputType="textPassword"
+            android:padding="16dp"
+            android:background="@drawable/bg_edittext"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Giriş Yap Butonu -->
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Giriş Yap"
+            android:backgroundTint="@color/primary"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Ayraç -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/border"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="veya"
+                android:textSize="11sp"
+                android:textColor="@color/muted_foreground"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/border"/>
+
+        </LinearLayout>
+
+        <!-- Google Butonu -->
+        <Button
+            android:id="@+id/btnGoogle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Google ile devam et"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/foreground"
+            android:textSize="14sp"
+            android:padding="16dp"
+            android:layout_marginBottom="32dp"/>
+
+    </LinearLayout>
+</ScrollView>

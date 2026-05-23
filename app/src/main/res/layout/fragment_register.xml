@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Logo ve Başlık -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="16dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_shopping_bag"
+                app:tint="@color/primary"
+                xmlns:app="http://schemas.android.com/apk/res-auto"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="KampüsDolap"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/foreground"
+                android:layout_marginStart="8dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aramıza katıl!"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/foreground"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Öğrenci topluluğuna üye ol."
+            android:textSize="14sp"
+            android:textColor="@color/muted_foreground"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Ad Soyad -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AD SOYAD"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:textColor="@color/foreground"
+            android:letterSpacing="0.08"
+            android:layout_marginBottom="6dp"/>
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ad Soyad"
+            android:inputType="textPersonName"
+            android:padding="16dp"
+            android:background="@drawable/bg_edittext"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Üniversite -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ÜNİVERSİTE"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:textColor="@color/foreground"
+            android:letterSpacing="0.08"
+            android:layout_marginBottom="6dp"/>
+
+        <EditText
+            android:id="@+id/etUniversity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ODTÜ, Boğaziçi, İTÜ..."
+            android:inputType="text"
+            android:padding="16dp"
+            android:background="@drawable/bg_edittext"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- E-posta -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="E-POSTA"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:textColor="@color/foreground"
+            android:letterSpacing="0.08"
+            android:layout_marginBottom="6dp"/>
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="buse@odtu.edu.tr"
+            android:inputType="textEmailAddress"
+            android:padding="16dp"
+            android:background="@drawable/bg_edittext"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Şifre -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ŞİFRE"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:textColor="@color/foreground"
+            android:letterSpacing="0.08"
+            android:layout_marginBottom="6dp"/>
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="••••••••"
+            android:inputType="textPassword"
+            android:padding="16dp"
+            android:background="@drawable/bg_edittext"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Kayıt Ol Butonu -->
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hesap Oluştur"
+            android:backgroundTint="@color/primary"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Giriş Yap Linki -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="32dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Zaten hesabın var mı? "
+                android:textSize="14sp"
+                android:textColor="@color/muted_foreground"/>
+
+            <TextView
+                android:id="@+id/tvLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Giriş Yap"
+                android:textSize="14sp"
+                android:textColor="@color/primary"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

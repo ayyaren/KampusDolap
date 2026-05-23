@@ -11,5 +11,6 @@ data class Product(
     val size: String = "",
     val sellerCity: String = "",
     val sellerId: String = "",
+    val sellerName: String = "",
     val description: String = ""
 ) : Serializable

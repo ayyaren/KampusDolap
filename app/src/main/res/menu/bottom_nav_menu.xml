@@ -1,29 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
     <item
         android:id="@+id/homeFragment"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="Ana Sayfa"/>
-
-    <item
-        android:id="@+id/favoritesFragment"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="Favoriler"/>
-
-    <item
-        android:id="@+id/addProductFragment"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="Ekle"/>
-
+        android:icon="@drawable/ic_home"
+        android:title=""/>
     <item
         android:id="@+id/cartFragment"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="Sepet"/>
-
+        android:icon="@drawable/ic_shopping_bag"
+        android:title="Siparişlerim"/>
+    <item
+        android:id="@+id/addProductFragment"
+        android:icon="@drawable/ic_add"
+        android:title=""/>
+    <item
+        android:id="@+id/favoritesFragment"
+        android:icon="@drawable/ic_heart"
+        android:title="Favoriler"/>
     <item
         android:id="@+id/profileFragment"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/ic_person"
         android:title="Profil"/>
-
 </menu>

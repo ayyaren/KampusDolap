@@ -28,9 +28,15 @@ class FavoritesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val adapter = FavoritesAdapter { item ->
+            viewModel.removeFavorite(item)
+        }
+
         binding.rvFavorites.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvFavorites.adapter = adapter
 
         viewModel.favorites.observe(viewLifecycleOwner) { favorites ->
+            adapter.updateItems(favorites)
             if (favorites.isEmpty()) {
                 binding.tvEmpty.visibility = View.VISIBLE
                 binding.rvFavorites.visibility = View.GONE

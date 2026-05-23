@@ -1,33 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1B5E20">
+    android:background="@color/primary">
 
-    <TextView
-        android:id="@+id/tvAppName"
+    <!-- Arka plan daireler -->
+    <View
+        android:layout_width="288dp"
+        android:layout_height="288dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="-96dp"
+        android:layout_marginEnd="-96dp"
+        android:background="@drawable/bg_circle_white_5"/>
+
+    <View
+        android:layout_width="192dp"
+        android:layout_height="192dp"
+        android:layout_gravity="start"
+        android:layout_marginTop="200dp"
+        android:layout_marginStart="-80dp"
+        android:background="@drawable/bg_circle_white_5"/>
+
+    <View
+        android:layout_width="224dp"
+        android:layout_height="224dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="-64dp"
+        android:layout_marginEnd="-32dp"
+        android:background="@drawable/bg_circle_white_4"/>
+
+    <!-- İçerik -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp">
+
+        <!-- Logo kutusu -->
+        <androidx.cardview.widget.CardView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="112dp"
+            android:layout_height="112dp"
+            android:layout_marginBottom="28dp"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="16dp"
+            app:cardBackgroundColor="@color/white">
+
+            <ImageView
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_shopping_bag"
+                app:tint="@color/primary"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Kampüs yazısı -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kampüs"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:letterSpacing="-0.02"/>
+
+        <!-- Dolap yazısı -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dolap"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            android:textColor="#BBF7D0"
+            android:layout_marginTop="2dp"
+            android:letterSpacing="-0.02"/>
+
+        <!-- Alt yazı -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ÖĞRENCİDEN ÖĞRENCİYE"
+            android:textSize="12sp"
+            android:textColor="#86EFAC"
+            android:layout_marginTop="20dp"
+            android:letterSpacing="0.1"/>
+
+    </LinearLayout>
+
+    <!-- Alt nokta göstergesi -->
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="KampüsDolap"
-        android:textColor="#FFFFFF"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="İkinci el kıyafet alışverişi"
-        android:textColor="#A5D6A7"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvAppName"
-        android:layout_marginTop="8dp" />
+        <View
+            android:layout_width="28dp"
+            android:layout_height="6dp"
+            android:background="@drawable/bg_dot_white"
+            android:layout_marginEnd="6dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <View
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:background="@drawable/bg_dot_white_35"
+            android:layout_marginEnd="6dp"/>
+
+        <View
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:background="@drawable/bg_dot_white_35"/>
+
+    </LinearLayout>
+
+</FrameLayout>

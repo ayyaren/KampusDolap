@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -12,6 +13,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.kampusdolap.app.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +24,20 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
+
         binding.bottomNav.setupWithNavController(navController)
+
+        // Login ve Splash ekranlarında alt barı gizle
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.splashFragment, R.id.loginFragment -> {
+                    binding.bottomNav.visibility = View.GONE
+                }
+                else -> {
+                    binding.bottomNav.visibility = View.VISIBLE
+                }
+            }
+        }
 
         requestNotificationPermission()
     }

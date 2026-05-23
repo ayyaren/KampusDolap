@@ -21,14 +21,16 @@ import com.kampusdolap.app.model.Product
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-
 import coil.load
-
+import com.google.firebase.firestore.FirebaseFirestore
+import com.kampusdolap.app.ui.CheckoutBottomSheet
 class DetailFragment : Fragment(), OnMapReadyCallback {
 
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
     private var googleMap: GoogleMap? = null
+    private val firestore = FirebaseFirestore.getInstance()
+
     private var sellerCity: String = ""
 
     override fun onCreateView(
@@ -49,37 +51,39 @@ class DetailFragment : Fragment(), OnMapReadyCallback {
             @Suppress("DEPRECATION")
             arguments?.getParcelable("product")
         }
+
         val mapFragment = childFragmentManager
             .findFragmentById(R.id.mapFragment) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
         product?.let {
             sellerCity = it.sellerCity ?: ""
+
             if (!it.imageUrl.isNullOrEmpty()) {
                 binding.ivProductImage.load(it.imageUrl)
             }
+
+            binding.tvBrand.text = it.category?.uppercase() ?: ""
             binding.tvTitle.text = it.title
             binding.tvPrice.text = "₺${it.price}"
-            binding.tvCategory.text = "Kategori: ${it.category}"
             binding.tvSize.text = "Beden: ${it.size}"
             binding.tvSellerCity.text = "Şehir: ${it.sellerCity}"
+
+            if (it.sellerId.isNotEmpty()) {
+                firestore.collection("users").document(it.sellerId)
+                    .get()
+                    .addOnSuccessListener { doc ->
+                        val name = doc.getString("name")
+                        if (!name.isNullOrEmpty()) {
+                            binding.tvSellerName.text = "Satıcı: $name"
+                            binding.tvSellerName.visibility = View.VISIBLE
+                        }
+                    }
+            }
+            binding.tvCategory.text = "Kategori: ${it.category}"
             binding.tvDescription.text = it.description
 
-            binding.btnAddToCart.setOnClickListener { _ ->
-                val cartItem = CartItem(
-                    productId = it.id,
-                    title = it.title,
-                    price = it.price,
-                    imageUrl = it.imageUrl,
-                    size = it.size
-                )
-                CoroutineScope(Dispatchers.IO).launch {
-                    AppDatabase.getInstance(requireContext()).cartDao().addToCart(cartItem)
-                }
-                Toast.makeText(requireContext(), "Sepete eklendi!", Toast.LENGTH_SHORT).show()
-            }
-
-            binding.btnFavorite.setOnClickListener { _ ->
+            binding.btnFavoriteDetail.setOnClickListener { _ ->
                 val favoriteItem = FavoriteItem(
                     productId = it.id,
                     title = it.title,
@@ -94,8 +98,8 @@ class DetailFragment : Fragment(), OnMapReadyCallback {
             }
 
             binding.btnBuy.setOnClickListener {
-                NotificationHelper.sendOrderNotification(requireContext(), product.title)
-                Toast.makeText(requireContext(), "Siparişiniz alındı!", Toast.LENGTH_SHORT).show()
+                val checkout = CheckoutBottomSheet(product)
+                checkout.show(parentFragmentManager, "checkout")
             }
         }
     }

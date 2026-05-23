@@ -37,16 +37,11 @@ class LoginFragment : Fragment() {
                 }
             }
         }
-
-        binding.btnRegister.setOnClickListener {
-            val email = binding.etEmail.text.toString()
-            val password = binding.etPassword.text.toString()
-            authRepository.register(email, password) { success, error ->
-                if (success) {
-                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-                }
-            }
+        binding.btnTabRegister.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
+
+
     }
 
     override fun onDestroyView() {

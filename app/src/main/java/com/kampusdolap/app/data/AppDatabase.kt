@@ -6,12 +6,13 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.kampusdolap.app.model.CartItem
 import com.kampusdolap.app.model.FavoriteItem
+import com.kampusdolap.app.model.OrderItem
 
-@Database(entities = [CartItem::class, FavoriteItem::class], version = 1)
+@Database(entities = [CartItem::class, FavoriteItem::class, OrderItem::class], version = 2)
 abstract class AppDatabase : RoomDatabase() {
-
     abstract fun cartDao(): CartDao
     abstract fun favoritesDao(): FavoritesDao
+    abstract fun orderDao(): OrderDao
 
     companion object {
         @Volatile
@@ -23,7 +24,9 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "kampusdolap_db"
-                ).build()
+                )
+                    .fallbackToDestructiveMigration()
+                    .build()
                 INSTANCE = instance
                 instance
             }

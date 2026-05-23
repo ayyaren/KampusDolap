@@ -12,8 +12,8 @@ import com.kampusdolap.app.databinding.FragmentAddProductBinding
 import com.kampusdolap.app.model.Product
 import androidx.navigation.fragment.findNavController
 import com.kampusdolap.app.R
-class AddProductFragment : Fragment() {
 
+class AddProductFragment : Fragment() {
     private var _binding: FragmentAddProductBinding? = null
     private val binding get() = _binding!!
     private val repository = ProductRepository()
@@ -44,7 +44,6 @@ class AddProductFragment : Fragment() {
             }
 
             val sellerId = FirebaseAuth.getInstance().currentUser?.uid ?: ""
-
             val product = Product(
                 title = title,
                 price = price,
@@ -52,14 +51,15 @@ class AddProductFragment : Fragment() {
                 size = size,
                 sellerCity = city,
                 sellerId = sellerId,
-                imageUrl =imageUrl
-
+                imageUrl = imageUrl
             )
 
             repository.uploadProduct(product) { success ->
                 if (success) {
                     Toast.makeText(requireContext(), "Ürün eklendi!", Toast.LENGTH_SHORT).show()
                     findNavController().navigate(R.id.homeFragment)
+
+
                 } else {
                     Toast.makeText(requireContext(), "Hata oluştu!", Toast.LENGTH_SHORT).show()
                 }
