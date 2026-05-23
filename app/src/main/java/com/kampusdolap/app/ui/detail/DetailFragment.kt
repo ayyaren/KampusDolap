@@ -22,6 +22,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+import coil.load
+
 class DetailFragment : Fragment(), OnMapReadyCallback {
 
     private var _binding: FragmentDetailBinding? = null
@@ -53,6 +55,9 @@ class DetailFragment : Fragment(), OnMapReadyCallback {
 
         product?.let {
             sellerCity = it.sellerCity ?: ""
+            if (!it.imageUrl.isNullOrEmpty()) {
+                binding.ivProductImage.load(it.imageUrl)
+            }
             binding.tvTitle.text = it.title
             binding.tvPrice.text = "₺${it.price}"
             binding.tvCategory.text = "Kategori: ${it.category}"

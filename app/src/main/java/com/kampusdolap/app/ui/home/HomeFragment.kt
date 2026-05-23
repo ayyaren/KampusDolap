@@ -47,6 +47,10 @@ class HomeFragment : Fragment() {
         viewModel.loadProducts()
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.loadProducts()
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

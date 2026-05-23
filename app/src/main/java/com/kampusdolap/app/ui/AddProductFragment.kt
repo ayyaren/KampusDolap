@@ -10,7 +10,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.kampusdolap.app.data.ProductRepository
 import com.kampusdolap.app.databinding.FragmentAddProductBinding
 import com.kampusdolap.app.model.Product
-
+import androidx.navigation.fragment.findNavController
+import com.kampusdolap.app.R
 class AddProductFragment : Fragment() {
 
     private var _binding: FragmentAddProductBinding? = null
@@ -35,6 +36,7 @@ class AddProductFragment : Fragment() {
             val category = binding.etCategory.text.toString().trim()
             val size = binding.etSize.text.toString().trim()
             val city = binding.etCity.text.toString().trim()
+            val imageUrl = binding.etImageUrl.text.toString().trim()
 
             if (title.isEmpty() || category.isEmpty() || city.isEmpty()) {
                 Toast.makeText(requireContext(), "Lütfen tüm alanları doldurun!", Toast.LENGTH_SHORT).show()
@@ -49,13 +51,15 @@ class AddProductFragment : Fragment() {
                 category = category,
                 size = size,
                 sellerCity = city,
-                sellerId = sellerId
+                sellerId = sellerId,
+                imageUrl =imageUrl
+
             )
 
             repository.uploadProduct(product) { success ->
                 if (success) {
                     Toast.makeText(requireContext(), "Ürün eklendi!", Toast.LENGTH_SHORT).show()
-                    requireActivity().onBackPressed()
+                    findNavController().navigate(R.id.homeFragment)
                 } else {
                     Toast.makeText(requireContext(), "Hata oluştu!", Toast.LENGTH_SHORT).show()
                 }

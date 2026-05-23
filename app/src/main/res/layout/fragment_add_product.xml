@@ -3,13 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp">
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -18,7 +16,6 @@
             android:textStyle="bold"
             android:textColor="#212121"
             android:layout_marginBottom="16dp"/>
-
         <EditText
             android:id="@+id/etTitle"
             android:layout_width="match_parent"
@@ -26,7 +23,6 @@
             android:hint="Ürün başlığı"
             android:inputType="text"
             android:layout_marginBottom="12dp"/>
-
         <EditText
             android:id="@+id/etPrice"
             android:layout_width="match_parent"
@@ -34,7 +30,6 @@
             android:hint="Fiyat (₺)"
             android:inputType="numberDecimal"
             android:layout_marginBottom="12dp"/>
-
         <EditText
             android:id="@+id/etCategory"
             android:layout_width="match_parent"
@@ -42,7 +37,6 @@
             android:hint="Kategori"
             android:inputType="text"
             android:layout_marginBottom="12dp"/>
-
         <EditText
             android:id="@+id/etSize"
             android:layout_width="match_parent"
@@ -50,15 +44,20 @@
             android:hint="Beden (S, M, L, XL)"
             android:inputType="text"
             android:layout_marginBottom="12dp"/>
-
         <EditText
             android:id="@+id/etCity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Şehir"
             android:inputType="text"
+            android:layout_marginBottom="12dp"/>
+        <EditText
+            android:id="@+id/etImageUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Görsel URL (opsiyonel)"
+            android:inputType="textUri"
             android:layout_marginBottom="24dp"/>
-
         <Button
             android:id="@+id/btnSave"
             android:layout_width="match_parent"
@@ -67,6 +66,5 @@
             android:backgroundTint="#1B5E20"
             android:textColor="#FFFFFF"
             android:padding="16dp"/>
-
     </LinearLayout>
 </ScrollView>
