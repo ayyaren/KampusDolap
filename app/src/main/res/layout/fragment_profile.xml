@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#4A148C"
+        android:padding="24dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tvUserEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:text="kullanici@email.com"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="İlanlarım"
+            android:textSize="14sp"
+            android:textColor="#E1BEE7"
+            android:layout_marginTop="4dp"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnAddProduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="+ Yeni İlan Ekle"
+        android:backgroundTint="#1B5E20"
+        android:textColor="#FFFFFF"
+        android:layout_margin="16dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvUserProducts"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/tvNoProducts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Henüz ilan eklemediniz 📦"
+        android:textSize="16sp"
+        android:textColor="#757575"
+        android:gravity="center"
+        android:padding="32dp"
+        android:visibility="gone"/>
+
+</LinearLayout>
