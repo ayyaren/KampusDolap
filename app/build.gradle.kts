@@ -1,9 +1,15 @@
-plugins {
+import java.util.Properties plugins {
     alias(libs.plugins.android.application)
     id("org.jetbrains.kotlin.android") version "2.0.21"
     id("com.google.gms.google-services")
     id("org.jetbrains.kotlin.plugin.parcelize") version "2.0.21"
     id("com.google.devtools.ksp") version "2.0.21-1.0.25"
+}
+val localProperties = Properties().apply {
+    val file = rootProject.file("local.properties")
+    if (file.exists()) {
+        file.inputStream().use { load(it) }
+    }
 }
 android {
     namespace = "com.kampusdolap.app"
@@ -15,6 +21,8 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
+        manifestPlaceholders["MAPS_API_KEY"] =
+            localProperties.getProperty("MAPS_API_KEY", " ")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -77,4 +85,5 @@ dependencies {
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.android.gms:play-services-maps:19.0.0")
     ksp("androidx.room:room-compiler:2.6.1")
+
 }
